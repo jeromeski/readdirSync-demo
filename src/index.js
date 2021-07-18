@@ -5,7 +5,8 @@ const app = express();
 
 
 readdirSync('./src/routes').map((r) => {
-  console.log(r)
+  console.log(require('./routes/' + r))
+                      // resolved via module.exports = router
   return app.use('/api', require('./routes/' + r));
 });
 
